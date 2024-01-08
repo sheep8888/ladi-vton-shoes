@@ -135,12 +135,12 @@ def main():
 
     # Load the trained models from the hub
     unet = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='extended_unet',
-                          dataset=args.dataset)
-    emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset=args.dataset)
+                          dataset="vitonhd")
+    emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset="vitonhd")
     inversion_adapter = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='inversion_adapter',
-                                       dataset=args.dataset)
+                                       dataset="vitonhd")
     tps, refinement = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='warping_module',
-                                     dataset=args.dataset)
+                                     dataset="vitonhd")
 
     int_layers = [1, 2, 3, 4, 5]
 
