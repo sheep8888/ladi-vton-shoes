@@ -16,8 +16,8 @@ import torch.utils.data as data
 import torchvision.transforms as transforms
 from PIL import Image, ImageDraw
 
-from src.utils_.posemap import get_coco_body25_mapping
-from src.utils_.posemap import kpoint_to_heatmap
+from src.utils.posemap import get_coco_body25_mapping
+from src.utils.posemap import kpoint_to_heatmap
 
 
 class ShoesDataset(data.Dataset):
