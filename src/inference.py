@@ -139,7 +139,7 @@ def main():
     emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset="vitonhd")
     inversion_adapter = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='inversion_adapter',
                                        dataset="vitonhd")
-    tps, refinement = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='warping_module',
+    tps, refinement = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='warping1_module',
                                      dataset="vitonhd")
 
     int_layers = [1, 2, 3, 4, 5]
