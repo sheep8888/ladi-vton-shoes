@@ -136,7 +136,9 @@ def main():
     # Load the trained models from the hub
     unet = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='extended_unet',
                           dataset="vitonhd")
-    unet.load_state_dict(torch.load("/kaggle/input/temp-pth/unet_20.pth"))
+    # unet.load_state_dict(torch.load("/kaggle/input/temp-pth/unet_20.pth"))
+    unet.load_state_dict(torch.load("/kaggle/input/temp-unet3000/unet_3000.pth"))
+    
     emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset="vitonhd")
     inversion_adapter = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='inversion_adapter',
                                        dataset="vitonhd")
