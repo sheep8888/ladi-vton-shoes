@@ -58,6 +58,7 @@ class ShoesDataset(data.Dataset):
         assert all(x in possible_outputs for x in outputlist)
         
         im_names = os.listdir(os.path.join(dataroot_path,self.phase,'ip'))
+        im_names = [ i for i in im_names if int(i.split('.')[0]) > 1500]
         
         self.im_names = im_names
         self.c_name = im_names
