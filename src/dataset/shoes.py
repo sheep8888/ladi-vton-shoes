@@ -167,10 +167,11 @@ class ShoesDataset(data.Dataset):
         if "im_cloth" in self.outputlist:
             im_cloth = image * inpaint_mask
         if "warped_cloth" in self.outputlist:  # Precomputed warped clothing image
-            warped_cloth = Image.open(
-                os.path.join(os.path.join(dataroot, self.phase, 'warped_cloth', im_name.split('.')[0]+'_'+im_name)))
-            warped_cloth = warped_cloth.resize((self.width, self.height))
-            warped_cloth = self.transform(warped_cloth)  # [-1,1]
+            # warped_cloth = Image.open(
+            #     os.path.join(os.path.join(dataroot, self.phase, 'warped_cloth', im_name.split('.')[0]+'_'+im_name)))
+            warped_cloth = inpaint_mask * image
+            # warped_cloth = warped_cloth.resize((self.width, self.height))
+            # warped_cloth = self.transform(warped_cloth)  # [-1,1]
 
 
         result = {}
