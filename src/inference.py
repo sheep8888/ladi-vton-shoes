@@ -140,8 +140,21 @@ def main():
     unet.load_state_dict(torch.load("/kaggle/input/use-warp-unet/unet_0.pth"))
     
     emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset="vitonhd")
-    inversion_adapter = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='inversion_adapter',
-                                       dataset="vitonhd")
+    # inversion_adapter = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='inversion_adapter',
+    #                                    dataset="vitonhd")
+    config = AutoConfig.from_pretrained("laion/CLIP-ViT-H-14-laion2B-s32B-b79K")
+    text_encoder_config =  UNet2DConditionModel.load_config("stabilityai/stable-diffusion-2-inpainting", subfolder="text_encoder")
+    inversion_adapter = InversionAdapter(input_dim=config.vision_config.hidden_size,
+                                         hidden_dim=config.vision_config.hidden_size * 4,
+                                         output_dim=text_encoder_config['hidden_size'] * 16,
+                                         num_encoder_layers=1,
+                                         config=config.vision_config)
+
+    # checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_{dataset}.pth"
+    checkpoint_url = f"https://github.com/mortal-163/ladi-vton/releases/download/weights/inversion_adapter_0.pth"
+    
+    inversion_adapter.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu'))
+    
     tps, refinement = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='warping1_module',
                                      dataset="vitonhd")
 
