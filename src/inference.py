@@ -140,7 +140,7 @@ def main():
     unet.load_state_dict(torch.load("/kaggle/input/use-warp-unet/unet_0.pth"))
     
     emasc = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='emasc', dataset="vitonhd")
-    inversion_adapter = torch.hub.load(repo_or_dir='miccunifi/ladi-vton', source='github', model='inversion_adapter',
+    inversion_adapter = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='inversion_adapter',
                                        dataset="vitonhd")
     tps, refinement = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='warping1_module',
                                      dataset="vitonhd")
