@@ -294,10 +294,10 @@ def main():
         warped_cloth = F.grid_sample(cloth.to(torch.float32), highres_grid.to(torch.float32), padding_mode='border')
 
         # Refine the warped cloth using the refinement network
-        # warped_cloth = torch.cat([im_mask, pose_map, warped_cloth], 1)
-        # warped_cloth = refinement(warped_cloth.to(torch.float32))
-        # warped_cloth = warped_cloth.clamp(-1, 1)
-        warped_cloth = batch.get("warped_cloth")
+        warped_cloth = torch.cat([im_mask, pose_map, warped_cloth], 1)
+        warped_cloth = refinement(warped_cloth.to(torch.float32))
+        warped_cloth = warped_cloth.clamp(-1, 1)
+        # warped_cloth = batch.get("warped_cloth")
         warped_cloth = warped_cloth.to(weight_dtype)
 
         # Get the visual features of the in-shop cloths
