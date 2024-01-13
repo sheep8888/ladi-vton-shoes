@@ -24,6 +24,7 @@ from vto_pipelines.tryon_pipe import StableDiffusionTryOnePipeline
 
 from dataset.shoes import ShoesDataset
 from transformers import CLIPVisionModelWithProjection, CLIPTextModel, AutoConfig
+from diffusers import UNet2DConditionModel
 
 
 PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
