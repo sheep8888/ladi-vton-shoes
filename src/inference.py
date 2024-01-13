@@ -23,6 +23,8 @@ from utils.val_metrics import compute_metrics
 from vto_pipelines.tryon_pipe import StableDiffusionTryOnePipeline
 
 from dataset.shoes import ShoesDataset
+from transformers import CLIPVisionModelWithProjection, CLIPTextModel, AutoConfig
+
 
 PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
 
