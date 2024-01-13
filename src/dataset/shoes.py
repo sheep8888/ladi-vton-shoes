@@ -61,7 +61,7 @@ class ShoesDataset(data.Dataset):
         # im_names = [ i for i in im_names if int(i.split('.')[0]) > 1500]
         if order == "paired":
             self.im_names = im_names
-            self.c_names = random.sample(im_names, len(im_name))
+            self.c_names = random.sample(im_names, len(im_names))
         else:
             self.im_names = im_names
             self.c_names = im_names
