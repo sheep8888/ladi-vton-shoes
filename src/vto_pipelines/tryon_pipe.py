@@ -651,7 +651,7 @@ class StableDiffusionTryOnePipeline(DiffusionPipeline):
         timesteps = self.scheduler.timesteps
 
         # 5a. Compute the number of steps to run sketch conditioning
-        cloth_conditioning_steps = (1 - cloth_cond_rate) * num_inference_steps
+        cloth_conditioning_steps = cloth_cond_rate * num_inference_steps
 
         # 6. Prepare latent variables
         num_channels_latents = self.vae.config.latent_channels
