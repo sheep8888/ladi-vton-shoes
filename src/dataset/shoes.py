@@ -58,23 +58,26 @@ class ShoesDataset(data.Dataset):
         assert all(x in possible_outputs for x in outputlist)
         
         im_names = os.listdir(os.path.join(dataroot_path,self.phase,'ip'))
-        im_names = [ i for i in im_names if int(i.split('.')[0]) > 1500]
-        
-        self.im_names = im_names
-        self.c_name = im_names
+        # im_names = [ i for i in im_names if int(i.split('.')[0]) > 1500]
+        if order == "pair":
+            self.im_names = im_names
+            self.c_names = random.sample(im_names, len(im_name))
+        else:
+            self.im_names = im_names
+            self.c_name = im_names
 
 
 
     def __getitem__(self, index):
         im_name = self.im_names[index]
-        c_name = im_name
+        c_name = self.c_names[index]
         category = 'lower_body'
         dataroot =self.dataroot
 
 
         if "cloth" in self.outputlist:  # In-shop clothing image
             # Clothing image
-            cloth = Image.open(os.path.join(dataroot, self.phase, 'ic', im_name))
+            cloth = Image.open(os.path.join(dataroot, self.phase, 'ic', c_name))
             cloth = cloth.resize((self.width, self.height))
             cloth = self.transform(cloth)  # [-1,1]
 
