@@ -62,6 +62,8 @@ class ShoesDataset(data.Dataset):
         if order == "paired":
             self.im_names = im_names
             self.c_names = random.sample(im_names, len(im_names))
+            print(self.im_names)
+            print(self.c_names)
         else:
             self.im_names = im_names
             self.c_names = im_names
