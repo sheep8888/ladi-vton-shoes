@@ -22,7 +22,9 @@ def inversion_adapter(dataset: Literal['dresscode', 'vitonhd']):
                                          num_encoder_layers=1,
                                          config=config.vision_config)
 
-    checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_{dataset}.pth"
+    # checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_{dataset}.pth"
+    checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_0.pth"
+    
     inversion_adapter.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu'))
     return inversion_adapter
 
