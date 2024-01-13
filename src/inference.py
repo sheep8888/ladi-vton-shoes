@@ -201,7 +201,7 @@ def main():
         test_dataset = ShoesDataset(
             dataroot_path=args.shoes_dataroot,
             phase='test',
-            order='paired',
+            order=args.test_order,
             radius=5,
             size=(512, 384),
             outputlist=tuple(outputlist)
