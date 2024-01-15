@@ -155,11 +155,11 @@ def main():
                                          config=config.vision_config)
 
     # checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_{dataset}.pth"
-    checkpoint_url = f"https://github.com/mortal-163/ladi-vton/releases/download/weights/inversion_adapter_0.pth"
+    checkpoint_url = f"https://github.com/sheep8888/ladi-vton-shoes/releases/download/weights/inversion_adapter_0.pth"
     
     inversion_adapter.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu'))
     
-    tps, refinement = torch.hub.load(repo_or_dir='mortal-163/ladi-vton', source='github', model='warping1_module',
+    tps, refinement = torch.hub.load(repo_or_dir='sheep8888/ladi-vton-shoes', source='github', model='warping1_module',
                                      dataset="vitonhd")
 
     int_layers = [1, 2, 3, 4, 5]
