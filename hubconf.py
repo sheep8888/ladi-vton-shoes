@@ -23,7 +23,7 @@ def inversion_adapter(dataset: Literal['dresscode', 'vitonhd']):
                                          config=config.vision_config)
 
     # checkpoint_url = f"https://github.com/miccunifi/ladi-vton/releases/download/weights/inversion_adapter_{dataset}.pth"
-    checkpoint_url = f"https://github.com/mortal-163/ladi-vton/releases/download/weights/inversion_adapter_0.pth"
+    checkpoint_url = f"https://github.com/sheep8888/ladi-vton-shoes/releases/download/weights/inversion_adapter_0.pth"
     
     inversion_adapter.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu'))
     return inversion_adapter
@@ -69,7 +69,7 @@ def warping1_module(dataset: Literal['dresscode', 'vitonhd']):
     tps = ConvNet_TPS(256, 192, 21, 3)
     refinement = UNetVanilla(n_channels=24, n_classes=3, bilinear=True)
 
-    checkpoint_url = f"https://github.com/mortal-163/ladi-vton/releases/download/weights/checkpoint_last.pth"
+    checkpoint_url = f"https://github.com/sheep8888/ladi-vton-shoes/releases/download/weights/warp_shoes.pth"
     tps.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu')['tps'])
     refinement.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint_url, map_location='cpu')['refinement'])
 
