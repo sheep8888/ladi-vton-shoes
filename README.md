@@ -4,8 +4,7 @@
 
 
 ## Overview
-
-![](assets/teaser.png "Overview of our approach")
+<img width="412" alt="image" src="https://github.com/mortal-163/ladi-vton/assets/92249359/ca6a9d0c-0105-4642-98c6-57c7fb271a46">
 
 
 ### Installation
