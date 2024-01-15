@@ -4,7 +4,9 @@
 
 
 ## Overview
-<img width="412" alt="image" src="https://github.com/mortal-163/ladi-vton/assets/92249359/ca6a9d0c-0105-4642-98c6-57c7fb271a46">
+<img width="412" alt="image" src="https://github.com/sheep8888/ladi-vton-shoes/assets/92249359/ee38981f-2a03-4fea-a8b9-2d9fc5ea6509">
+<img width="478" alt="image" src="https://github.com/sheep8888/ladi-vton-shoes/assets/92249359/0a1c09d5-2fac-4321-817c-cd8a68f2c17d">
+
 
 
 ### Installation
@@ -12,7 +14,7 @@
 1. Clone the repository
 
 ```sh
-git clone https://github.com/mortal-163/ladi-vton
+git clone https://github.com/sheep8888/ladi-vton-shoes
 ```
 
 2. Install Python dependencies
@@ -34,7 +36,7 @@ pip install torch==2.0.1 torchvision==0.15.2 opencv-python==4.7.0.72 diffusers==
 
 #### ShoesData
 
-Download the [ShoesData]() dataset
+Download the [ShoesData](https://github.com/sheep8888/ladi-vton-shoes/releases/download/untagged-b97e7db945f89bd95228/VTON-S.zip) dataset
 Once the dataset is downloaded, the folder structure should look like this:
 
 ```
@@ -53,8 +55,20 @@ Once the dataset is downloaded, the folder structure should look like this:
 ```
 
 
-</details>
+### Train
+```sh
+!python src/train_vto.py --dataset shoes  --shoes_dataroot <path> --output_dir <path> --inversion_adapter_dir <path>
+```
 
+### Inference
+```sh
+!python src/inference.py --dataset shoes --shoes_dataroot <path> --output_dir <name> --test_order [paired|unpaired] 
+```
+
+### Metrics computation
+The metric calculation code section has not been modified
+
+**Please refer to  [**LaDI-VTON**](https://github.com/miccunifi/ladi-vton) for more details**
 
 
 
